@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import './RootLayout.css';
 import votingImage from '../assets/login.png';
 import {useState,useEffect} from 'react';
+import About from '../pages/about';
 
 export default function RootLayout(){
     
@@ -23,19 +24,22 @@ export default function RootLayout(){
 
 
     return (
-        <div className='login-container'>
-            <div className="container">
-                <div className="image-section">
-                    <img src={votingImage} alt="Voting Illustration" />
-                </div>
-                <form className="form-section" >
-                    <h2>Enter Your Voting ID</h2>
-                    <input type="text" placeholder="Enter your ID here" value={votingId} onChange={({target})=>{setVotingId(target.value)}} />
-                    <div className="button-container">
-                        <button onClick={handleSubmission}>Continue</button>
+        <div>
+            <div className='login-container'>
+                <div className="container">
+                    <div className="image-section">
+                        <img src={votingImage} alt="Voting Illustration" />
                     </div>
-                </form>
+                    <form className="form-section" >
+                        <h2>Enter Your Voting ID</h2>
+                        <input type="text" placeholder="Enter your ID here" value={votingId} onChange={({target})=>{setVotingId(target.value)}} />
+                        <div className="button-container">
+                            <button onClick={handleSubmission}>Continue</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+            <About />
         </div>
       );
 }

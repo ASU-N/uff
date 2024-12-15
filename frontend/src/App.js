@@ -7,18 +7,19 @@ import HomeLayout from './layout/HomeLayout';
 import About from './pages/about';
 import Result from './pages/result';
 
-const router=createBrowserRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout/>}>
-      <Route path='about' element={<About/>}/>
-      <Route path='home' element={<HomeLayout/>}>
-        <Route path='kyc' element={<Kyc/>}/>
-        <Route path='result' element={<Result/>}/>
-        <Route path='guidelines' element={<About/>}/>
+    <Route path="/" element={<RootLayout />}>
+      <Route path="about" element={<About />} />
+      <Route path="home" element={<HomeLayout />}>
+        <Route path="kyc" element={<Kyc />} />
+        <Route path="result" element={<Result />} />
+        <Route path="guidelines" element={<About />} />
       </Route>
     </Route>
   )
 );
+
 
 
 

@@ -2,7 +2,8 @@ import {Link} from 'react-router-dom';
 import './RootLayout.css';
 import votingImage from '../assets/login.png';
 import {useState,useEffect} from 'react';
-import About from '../pages/about';
+
+
 
 export default function RootLayout(){
     
@@ -39,7 +40,7 @@ export default function RootLayout(){
                     </form>
                 </div>
             </div>
-            <About />
+        
         </div>
       );
 }

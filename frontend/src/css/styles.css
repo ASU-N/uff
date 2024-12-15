@@ -121,7 +121,7 @@ body, html {
 /* Layout styling */
 .about-page {
   font-family: Arial, sans-serif;
-  color: #5a4636;
+  color: #333436;
   background-color: #f9f6f3;
 }
 
@@ -136,7 +136,7 @@ body, html {
 
 .mission h2 {
   font-size: 26px;
-  color: #c38b6b;
+  color: #54A0D2;
   font-weight:600;
 }
 
@@ -147,23 +147,24 @@ body, html {
 
 .how-it-works h3 {
   font-size: 18px;
-  color: #937849;
+  color: #114880;
 }
 
 .how-it-works ol {
   margin-top: 10px;
   line-height: 1.6;
+  padding-left: 20px;
 }
 
 /* Security Section */
 .security {
   margin: 30px 10%;
-  color: #7d6753;
+  color: #333436;
 }
 
 .security h3 {
   font-size: 18px;
-  color: #937849;
+  color: #114880;
 }
 
 .security ul {
@@ -210,7 +211,7 @@ body, html {
   background-color: #f1f1f1;
   padding: 15px;
   font-size: 12px;
-  color: #7d6753;
+  color: #333436;
   border-top: 1px solid #ddd;
 }
 
@@ -226,7 +227,7 @@ body, html {
 }
 
 .content h2 {
-  color: #937849;
+  color: #114880;
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
@@ -261,14 +262,14 @@ body, html {
 .candidate-info {
   flex: 1;
   font-size: 16px;
-  color: #7d6753;
+  color: #333436;
 }
 
 .vote-button, .manifesto-button {
   padding: 8px 16px;
   border: none;
   background-color: #e8dfd3;
-  color: #937849;
+  color: #114880;
   font-size: 14px;
   cursor: pointer;
   border-radius: 10px;
@@ -301,13 +302,13 @@ body, html {
 
 .candidate-info p {
   margin: 0;
-  color: #7d6753;
+  color: #333436;
   font-size: 16px;
 }
 
 .manifesto-text {
   font-style: italic;
-  color: #7d6753;
+  color: #333436;
   margin-top: 15px;
 }
 
@@ -322,7 +323,7 @@ body, html {
 
 .promises-section h3 {
   font-size: 20px;
-  color: #937849;
+  color: #114880;
   margin-bottom: 10px;
 }
 
@@ -337,7 +338,7 @@ body, html {
 
 .promises-section li strong {
   font-size: 16px;
-  color: #937849;
+  color: #114880;
 }
 
 .promises-section ul {

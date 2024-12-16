@@ -2,24 +2,23 @@ import {Link} from 'react-router-dom';
 import './login.css';
 import votingImage from '../assets/login.png';
 import {useState,useEffect} from 'react';
+import axios from 'axios';
+
 
 export default function RootLayout(){
     
     const [votingId,setVotingId]=useState('');
     
-//    useEffect(({target})=>{
-//         setVotingId(target.value);
-//    },[votingInput]);
 
-   const handleSubmission=(event)=>{
-
+   const handleSubmission=(event)=>{      
+    
     event.preventDefault();
 
-    console.log(votingId);        
+    axios.post('https://hello.com',{votingId})
+    .then(response=>console.log(response))
+    .catch(error=>console.log(error))
 
    }
-
-
 
 
     return (
@@ -30,7 +29,7 @@ export default function RootLayout(){
                 </div>
                 <form className="form-section" >
                     <h2>Enter Your Voting ID</h2>
-                    <input type="text" placeholder="Enter your ID here" value={votingId} onChange={({target})=>{setVotingId(target.value)}} />
+                    <input type="text" placeholder="Enter your Voting Id here" value={votingId} onChange={({target})=>{setVotingId(target.value)}} />
                     <div className="button-container">
                         <button onClick={handleSubmission}>Continue</button>
                     </div>

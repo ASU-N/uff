@@ -1,5 +1,6 @@
-import {NavLink} from 'react-router-dom';
+import {NavLink,Outlet} from 'react-router-dom';
 import {useState} from 'react';
+import profile from '../assets/home_profile.jpg';
 
 export default function HomeLayout(){
     
@@ -8,17 +9,26 @@ export default function HomeLayout(){
     
     return(
         <div className='root-layout'>
-            <header></header>
+            <header>
+                <nav>
+                    <NavLink to="/home">Home</NavLink>
+                    <NavLink to="/home/kyc">Know Your Candidates</NavLink>
+                    <NavLink to="/home/result">Results</NavLink>
+                    <NavLink to="/home/guideline">Guidelines</NavLink>
+                </nav>
+            </header>
             <main>
                 <nav>
-                    <img></img>
+                    <img src={profile} alt='Voters Profile'/>
+
+
 
 
                 </nav>
                 <section>
-                    
-
+                <Outlet/>
                 </section>
+                
             </main>
         </div>
     )

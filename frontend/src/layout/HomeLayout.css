@@ -1,0 +1,70 @@
+header nav.homeNavBar{
+display:flex;
+width:100vw;
+height:8vh;
+background-color: #002b6a;
+box-shadow: 0 0.5vh 1vh #d0cccc;
+align-items: center;
+padding:2vh;
+justify-content: center;
+}
+
+nav.homeNavBar a{
+    padding:1vh;
+    text-decoration: none;
+    margin:2vh;
+    color:white;
+    border:  0.1vh solid white 
+}
+
+nav.homeNavBar a:hover{
+    color:#5cb9c8;
+    border:0.1vh solid #5cb9c8;
+}
+
+nav.homeNavBar a.active{
+    color:#5cb9c8;
+    border:0.1vh solid #5cb9c8;
+}
+
+header nav.homeNavBar button{
+    right:0vh;
+    width: 7vh;
+    height:7vh;
+    border-radius: 50%;
+    position: fixed;
+    margin-right:2vh;
+    
+}
+
+header nav.homeNavBar button img{
+    width:7vh;
+    height: 7vh;
+    object-fit: fill;
+    
+}
+
+
+main{
+    display: flex;
+}
+
+
+main .timerNavBar{
+width: 25vw;
+background-color: #5cb9c8;
+position: fixed;
+right:0;
+height: 100vh;
+padding:2vh;
+color:#002b6a
+}
+
+
+
+
+
+
+
+
+

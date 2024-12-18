@@ -8,12 +8,14 @@ import Result from './pages/result';
 import NotFoundPage from './pages/notfoundpage'
 import Login from './pages/login';
 import Guidelines from './pages/guidelines';
+import Home from './pages/home';
 
 const router=createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index element={<Login/>}/>
-      <Route path='home' element={<HomeLayout/>}>
+      <Route path='/home' element={<HomeLayout/>}>
+        <Route index element={<Home/>}/>
         <Route path='kyc' element={<Kyc/>}/>
         <Route path='result' element={<Result/>}/>
         <Route path='guidelines' element={<Guidelines/>}/>

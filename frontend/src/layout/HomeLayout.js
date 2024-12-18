@@ -1,7 +1,7 @@
 import {NavLink,Outlet} from 'react-router-dom';
 import {useState,useEffect} from 'react';
 import profile from '../assets/home_profile.jpg';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo.png';
 import './HomeLayout.css'
 
 export default function HomeLayout(){

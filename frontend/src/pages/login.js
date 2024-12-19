@@ -1,6 +1,6 @@
 import './login.css';
 import votingImage from '../assets/login.png';
-import {useState,useEffect} from 'react';
+import {useState,useEffect, act} from 'react';
 import axios from 'axios';
 import ToggleButton from '../components/toggleButton';
 
@@ -19,6 +19,11 @@ export default function RootLayout(){
     
     event.preventDefault();
 
+    console.log(action);
+    alert(
+        action
+    )
+    
     axios.post('https://hello.com',{votingId,action})
     .then(response=>console.log(response))
     .catch(error=>console.log(error))

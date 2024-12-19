@@ -8,7 +8,7 @@ const ToggleButton = ({onToggle}) => {
         
 
         setIsChecked(!isChecked);
-        onToggle(isChecked?'Login':'Register');
+        onToggle(isChecked?'Register':'Login');
         
         console.log(isChecked);
     };

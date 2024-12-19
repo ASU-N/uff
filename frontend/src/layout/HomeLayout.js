@@ -8,10 +8,18 @@ export default function HomeLayout(){
     
     return(
         <div className='root-layout'>
-            <header></header>
+            <header>
+             <nav>
+                <NavLink to="/kyc">Know your Candidates</NavLink>
+                <NavLink to="/result">Results</NavLink>
+                <NavLink to="/guidelines">Guidelines</NavLink>
+             </nav>
+            </header>
             <main>
                 <nav>
-                    <img></img>
+                    <img>
+                    
+                    </img>
 
 
                 </nav>

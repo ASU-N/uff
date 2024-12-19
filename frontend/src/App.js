@@ -6,16 +6,19 @@ import RootLayout from './layout/RootLayout';
 import HomeLayout from './layout/HomeLayout';
 import About from './pages/about';
 import Result from './pages/result';
+import Login from './pages/login';
+import NotFoundPage from './pages/pagenotfound';
 
 const router=createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout/>}>
-      <Route path='about' element={<About/>}/>
+    <Route>
+      <Route index element={<Login/>}/>
       <Route path='home' element={<HomeLayout/>}>
         <Route path='kyc' element={<Kyc/>}/>
         <Route path='result' element={<Result/>}/>
         <Route path='guidelines' element={<About/>}/>
       </Route>
+      <Route path='*' element={<NotFoundPage/>}/>
     </Route>
   )
 );

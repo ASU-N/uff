@@ -1,3 +1,9 @@
+//  function Kyc()
+// {
+//     return(
+//         <h1>It is Kyc Page</h1>
+//     )
+// }
 import '../css/styles.css';
 // import Navbar from './components/navbar';
 import candidates from '../data/candidate';

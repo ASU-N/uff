@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import './RootLayout.css';
 import votingImage from '../assets/login.png';
 import {useState,useEffect} from 'react';
+import Logout from '../pages/logout';
 
 
 
@@ -38,6 +39,7 @@ export default function RootLayout(){
                             <button onClick={handleSubmission}>Continue</button>
                         </div>
                     </form>
+                
                 </div>
             </div>
         

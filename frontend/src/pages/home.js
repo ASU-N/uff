@@ -34,7 +34,7 @@ export default function home()
                 </div>    
                 <button>Vote Now</button>
             </div>
-
+    
             
        </div>
     )

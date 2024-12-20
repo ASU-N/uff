@@ -231,6 +231,7 @@ body, html {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
+  margin-top: 48px;
 }
 
 /* Candidate List Section */
@@ -300,31 +301,43 @@ body, html {
   margin-bottom: 10px;
 }
 
-.candidate-info p {
-  margin: 0;
-  color: #333436;
-  font-size: 16px;
-}
-
 .manifesto-text {
   font-style: italic;
   color: #333436;
   margin-top: 15px;
 }
 
+
+/* Candidate card style */
+.candidate-card{
+  display: flex;
+  padding: 20px;
+  border: 1px solid #5cb9c8;
+  background-color: #eef5fe;
+  margin-bottom: 24px;
+  border-radius: 12px;
+}
+
+.candidate-name{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.candidate-info p {
+  color: #333436;
+  font-size: 16px;
+}
+
+
 /* Promises Section Styling */
 .promises-section {
-  margin-top: 40px;
-  text-align: left;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
+  margin-top:10px ;
 }
 
 .promises-section h3 {
-  font-size: 20px;
-  color: #114880;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
 .promises-section ol {
@@ -333,12 +346,11 @@ body, html {
 
 .promises-section li {
   margin-bottom: 15px;
-  color: #5a4636;
+  
 }
 
 .promises-section li strong {
   font-size: 16px;
-  color: #114880;
 }
 
 .promises-section ul {
@@ -346,3 +358,18 @@ body, html {
   list-style-type: disc;
 }
 
+/* Guidelines styles */
+.guidelines {
+  margin-top: 40px;
+}
+
+.guidelines ol {
+  padding-left: 20px;
+}
+
+.guidelines .point {
+
+  margin-top: 8px;
+  margin-bottom: 15px;
+  padding-left: 16px;
+}

@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import ElectionCountdownView, CandidateListView
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('login/', views.login, name='login'),
-    path('register/', views.register, name='register'),
+    path('api/election/countdown/', ElectionCountdownView.as_view(), name='election-countdown'),
+    path('api/candidates/', CandidateListView.as_view(), name='candidate-list'),
 ]
+

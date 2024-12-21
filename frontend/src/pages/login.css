@@ -25,6 +25,7 @@
   }
   
   .login-container{
+    max-width: 850px;
     width: 70%;
     height: 100vh;
     display: flex;
@@ -125,3 +126,14 @@
     padding:0vh;
   }
   
+  /* Responsice */
+
+  @media only screen and (max-width: 900px) {
+    .login-container .container .image-section {
+      display: none;
+    }
+
+    .login-container .form-section{
+      width: 100%;
+    }
+  }

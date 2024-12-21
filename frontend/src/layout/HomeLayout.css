@@ -43,7 +43,7 @@ position: fixed;
     width:7vh;
     height: 7vh;
     object-fit: fill;
-    
+    border-radius: 50%;
 }
 
 

@@ -1,36 +1,37 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Voter
-from .serializers import VoterSerializer
+from rest_framework import status
+from django.http import JsonResponse
+from .models import Candidate, Election
+from .serializers import CandidateSerializer, ElectionSerializer
+import datetime
 
 def home(request):
-    return HttpResponse("Welcome to the Online Voting System!")
+    return render(request, 'home.html')
 
-@api_view(['POST'])
-def login(request):
-    voter_id = request.data.get('voter_id')
-    face_data = request.data.get('face_data')  # Retrieve face data
-    try:
-        voter = Voter.objects.get(voter_id=voter_id)
-        if voter.face_data == face_data:
-            serializer = VoterSerializer(voter)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-            return Response({'error': 'Invalid face data.'}, status=status.HTTP_400_BAD_REQUEST)
-    except Voter.DoesNotExist:
-        return Response({'error': 'Voter not detected. Please register.'}, status=status.HTTP_404_NOT_FOUND)
+class ElectionCountdownView(APIView):
+    def get(self, request):
+        # Define the deadline for the election countdown
+        deadline = datetime.datetime(2025, 1, 1)  
+        now = datetime.datetime.now()
+        remaining_time = deadline - now
 
-@api_view(['POST'])
-def register(request):
-    voter_id = request.data.get('voter_id')
-    face_data = request.data.get('face_data')
-    voter_data = {'voter_id': voter_id, 'face_data': face_data}
+        hours = remaining_time.days * 24 + remaining_time.seconds // 3600
+        minutes = (remaining_time.seconds % 3600) // 60
+        seconds = remaining_time.seconds % 60
 
-    serializer = VoterSerializer(data=voter_data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse({
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        })
+
+class CandidateListView(APIView):
+    def get(self, request, *args, **kwargs):
+        # Fetch all candidates from the database
+        candidates = Candidate.objects.all()
+        # Serialize the candidates list
+        serializer = CandidateSerializer(candidates, many=True)
+        return Response(serializer.data)
+

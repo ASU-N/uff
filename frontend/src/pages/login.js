@@ -1,57 +1,78 @@
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import './login.css';
 import votingImage from '../assets/login.png';
-import {useState} from 'react';
-import axios from 'axios';
 import ToggleButton from '../components/toggleButton';
 
-export default function RootLayout(){
-    
-    const [votingId,setVotingId]=useState('');
-    const [action ,setAction]=useState('register');
+const Login = () => {
+    const [videoStream, setVideoStream] = useState(null);
+    const [votingId, setVotingId] = useState('');
+    const [action, setAction] = useState('register');
+    const videoRef = useRef(null);
 
-    const handleToggle=(text)=>{
-        setAction(text);
-        console.log('Action:'+text);
-    }
-    
+    useEffect(() => {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                setVideoStream(stream);
+                if (videoRef.current) {
+                    videoRef.current.srcObject = stream;
+                }
+            })
+            .catch(err => console.error("Error accessing webcam: ", err));
+    }, []);
 
-   const handleSubmission=(event)=>{      
-    
-    event.preventDefault();
+    const captureFrame = () => {
+        const video = videoRef.current;
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        return canvas.toDataURL('image/jpeg');
+    };
 
-    console.log(action);
-    alert(
-        action
-    )
-    
-    axios.post('https://hello.com',{votingId,action})
-    .then(response=>console.log(response))
-    .catch(error=>console.log(error))
+    const sendFrameToBackend = (frame, action) => {
+        axios.post(`http://localhost:5000/${action}`, { frame, voter_id: votingId })
+            .then(response => {
+                console.log("Response: ", response.data);
+                alert(response.data.message); // Display success/failure message
+            })
+            .catch(error => console.error("Error: ", error));
+    };
 
-   }
+    const handleToggle = (text) => {
+        setAction(text.toLowerCase());
+        console.log('Action: ' + text);
+    };
 
+    const handleSubmission = (event) => {
+        event.preventDefault();
+        const frame = captureFrame();
+        sendFrameToBackend(frame, action);
+    };
 
     return (
         <div className='login-container'>
             <div className="container">
                 <div className="image-section">
                     <img src={votingImage} alt="Voting Illustration" />
-
                 </div>
-
-                <form className="form-section" >
+                <form className="form-section" onSubmit={handleSubmission}>
                     <div className='toggle-button'>
-                    <ToggleButton  onToggle={handleToggle} /> 
+                        <ToggleButton onToggle={handleToggle} />
                     </div>
                     <div className='form-info'>
                         <h2>Enter Your Voting ID</h2>
-                        <input type="text" placeholder="Enter your Voting Id here" value={votingId} onChange={({target})=>{setVotingId(target.value)}} />
+                        <input type="text" placeholder="Enter your Voting ID here" value={votingId} onChange={({ target }) => setVotingId(target.value)} required />
+                        <video ref={videoRef} autoPlay className="webcam-video" />
                         <div className="button-container">
-                            <button onClick={handleSubmission}>Continue</button>
+                            <button type="submit">Continue</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-      );
-}
+    );
+};
+
+export default Login;

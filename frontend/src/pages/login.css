@@ -137,3 +137,16 @@
       width: 100%;
     }
   }
+  .webcam-video {
+    width: 50%;  /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 1000px; /* Set a maximum width for the video */
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: block; /* Ensure the video is displayed as a block element */
+    margin-left: auto; /* Center the video horizontally */
+    margin-right: auto; /* Center the video horizontally */
+}
+.button-container { margin-top: 20px;} /* Space above the button */
+
